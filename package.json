@@ -1,0 +1,44 @@
+{
+  "name": "shader-program",
+  "version": "1.0.0",
+  "description": "A type-safe way to create WebGL shader programs and set its attributes",
+  "keywords": [
+    "TypeScript",
+    "todo"
+  ],
+  "homepage": "https://github.com/Lusito/shader-program",
+  "bugs": {
+    "url": "https://github.com/Lusito/shader-program/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Lusito/shader-program.git"
+  },
+  "license": "Zlib",
+  "author": "Santo Pfingsten",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "rimraf dist && tsc -p tsconfig-build.json",
+    "lint": "npm run lint:style && npm run lint:es && npm run lint:package",
+    "lint:es": "eslint {src,test}/**/*.{ts,tsx} --ext .ts,.tsx --ignore-path .prettierignore",
+    "lint:es:fix": "npm run lint:es -- --fix",
+    "lint:fix": "npm run lint:style:fix && npm run lint:es:fix && npm run lint:package:fix",
+    "lint:package": "sort-package-json --check",
+    "lint:package:fix": "sort-package-json",
+    "lint:style": "npm run lint:style:base -- --check",
+    "lint:style:base": "prettier {src,test}/**/*.{ts,tsx,js,json} ./*.{ts,tsx,js,json}",
+    "lint:style:fix": "npm run lint:style:base -- --write"
+  },
+  "devDependencies": {
+    "@lusito/eslint-config": "^1.1.1",
+    "@lusito/prettier-config": "^1.1.0",
+    "@lusito/stylelint-config": "^1.1.0",
+    "rimraf": "^3.0.2",
+    "sort-package-json": "^1.44.0",
+    "typescript": "^4.0.2"
+  }
+}
