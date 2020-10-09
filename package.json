@@ -1,6 +1,6 @@
 {
   "name": "typed-glsl",
-  "version": "1.0.0",
+  "version": "0.9.0",
   "description": "A type-safe way to create WebGL 1/2 shader programs and set their attributes",
   "keywords": [
     "TypeScript",
