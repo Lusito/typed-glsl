@@ -1,18 +1,21 @@
 {
-  "name": "shader-program",
+  "name": "typed-glsl",
   "version": "1.0.0",
-  "description": "A type-safe way to create WebGL shader programs and set its attributes",
+  "description": "A type-safe way to create WebGL 1/2 shader programs and set their attributes",
   "keywords": [
     "TypeScript",
-    "todo"
+    "glsl",
+    "webgl",
+    "webgl2",
+    "shader"
   ],
-  "homepage": "https://github.com/Lusito/shader-program",
+  "homepage": "https://github.com/Lusito/typed-glsl",
   "bugs": {
-    "url": "https://github.com/Lusito/shader-program/issues"
+    "url": "https://github.com/Lusito/typed-glsl/issues"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/Lusito/shader-program.git"
+    "url": "https://github.com/Lusito/typed-glsl.git"
   },
   "license": "Zlib",
   "author": "Santo Pfingsten",
@@ -34,11 +37,11 @@
     "lint:style:fix": "npm run lint:style:base -- --write"
   },
   "devDependencies": {
-    "@lusito/eslint-config": "^1.1.1",
-    "@lusito/prettier-config": "^1.1.0",
-    "@lusito/stylelint-config": "^1.1.0",
+    "@lusito/eslint-config": "^1.3.1",
+    "@lusito/prettier-config": "^1.2.0",
+    "@lusito/stylelint-config": "^1.2.0",
     "rimraf": "^3.0.2",
-    "sort-package-json": "^1.44.0",
-    "typescript": "^4.0.2"
+    "sort-package-json": "^1.46.0",
+    "typescript": "^4.0.3"
   }
 }
