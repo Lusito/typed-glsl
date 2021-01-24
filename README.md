@@ -90,7 +90,7 @@ defaultShader.position.set(2, this.gl.FLOAT, false, 0, 0);
 defaultShader.opacity.set(1);
 ```
 
-### Report isssues
+### Report issues
 
 Something not working quite as expected? Do you need a feature that has not been implemented yet? Check the [issue tracker](https://github.com/Lusito/typed-glsl/issues) and add a new one if your problem is not already listed. Please try to provide a detailed description of your problem, including the steps to reproduce it.
 
