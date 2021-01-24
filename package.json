@@ -1,6 +1,6 @@
 {
   "name": "typed-glsl",
-  "version": "0.9.0",
+  "version": "0.10.0",
   "description": "A type-safe way to create WebGL 1/2 shader programs and set their attributes",
   "keywords": [
     "TypeScript",
@@ -27,21 +27,21 @@
   "scripts": {
     "build": "rimraf dist && tsc -p tsconfig-build.json",
     "lint": "npm run lint:style && npm run lint:es && npm run lint:package",
-    "lint:es": "eslint {src,test}/**/*.{ts,tsx} --ext .ts,.tsx --ignore-path .prettierignore",
+    "lint:es": "eslint \"{src,test}/**/*.{ts,tsx}\" --ext \".ts,.tsx\" --ignore-path .prettierignore",
     "lint:es:fix": "npm run lint:es -- --fix",
     "lint:fix": "npm run lint:style:fix && npm run lint:es:fix && npm run lint:package:fix",
     "lint:package": "sort-package-json --check",
     "lint:package:fix": "sort-package-json",
     "lint:style": "npm run lint:style:base -- --check",
-    "lint:style:base": "prettier {src,test}/**/*.{ts,tsx,js,json} ./*.{ts,tsx,js,json}",
+    "lint:style:base": "prettier \"{src,test}/**/*.{ts,tsx,js,json}\" \"./*.{ts,tsx,js,json}\"",
     "lint:style:fix": "npm run lint:style:base -- --write"
   },
   "devDependencies": {
-    "@lusito/eslint-config": "^1.3.1",
-    "@lusito/prettier-config": "^1.2.0",
-    "@lusito/stylelint-config": "^1.2.0",
+    "@lusito/eslint-config": "^1.5.0",
+    "@lusito/prettier-config": "^1.5.0",
+    "@lusito/stylelint-config": "^1.5.0",
     "rimraf": "^3.0.2",
-    "sort-package-json": "^1.46.0",
-    "typescript": "^4.0.3"
+    "sort-package-json": "^1.48.1",
+    "typescript": "^4.1.3"
   }
 }
