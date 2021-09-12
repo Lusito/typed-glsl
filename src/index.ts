@@ -47,7 +47,7 @@ export function createShaderProgram<TC extends WebGLRenderingContext, TD extends
         const location = fn.startsWith("uniform")
             ? gl.getUniformLocation(program, key)
             : gl.getAttribLocation(program, key);
-        setters[key] = factory((gl as unknown) as WebGL2RenderingContext, location as any);
+        setters[key] = factory(gl as unknown as WebGL2RenderingContext, location as any);
     }
 
     return {
