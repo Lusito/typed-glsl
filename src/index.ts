@@ -11,10 +11,17 @@ export function glsl(literals: TemplateStringsArray, ...placeholders: string[]) 
 }
 
 function addShader(gl: WebGLRenderingContext, program: WebGLProgram, type: number, source: string) {
-    // fixme: check results, throw error on failure
     const shader = gl.createShader(type) as WebGLShader;
     gl.shaderSource(shader, source);
     gl.compileShader(shader);
+
+    if (!gl.getShaderParameter(shader, gl.COMPILE_STATUS)) {
+        const compilationLog = gl.getShaderInfoLog(shader);
+        gl.deleteShader(shader);
+
+        throw new Error(`Failed compiling shader: ${compilationLog ?? "unknown error"}`);
+    }
+
     gl.attachShader(program, shader);
     return shader;
 }
@@ -34,12 +41,21 @@ export function createShaderProgram<TC extends WebGLRenderingContext, TD extends
     data: TD
 ): ShaderProgram<TD> {
     const program = gl.createProgram() as WebGLProgram;
-    const setters: any = {};
-    const vertexShader = addShader(gl, program, gl.VERTEX_SHADER, vertexShaderSource);
-    const fragmentShader = addShader(gl, program, gl.FRAGMENT_SHADER, fragmentShaderSource);
+    let vertexShader: WebGLShader;
+    let fragmentShader: WebGLShader;
+
+    try {
+        vertexShader = addShader(gl, program, gl.VERTEX_SHADER, vertexShaderSource);
+        fragmentShader = addShader(gl, program, gl.FRAGMENT_SHADER, fragmentShaderSource);
+    } catch (e) {
+        gl.deleteProgram(program);
+        throw e;
+    }
+
     gl.linkProgram(program);
     gl.useProgram(program);
 
+    const setters: any = {};
     for (const key of Object.keys(data)) {
         const fn = data[key];
         const factory = factoriesGl2[fn];
