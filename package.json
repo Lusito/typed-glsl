@@ -26,21 +26,16 @@
   ],
   "scripts": {
     "build": "rimraf dist && tsc -p tsconfig-build.json",
-    "lint": "npm run lint:style && npm run lint:es && npm run lint:package",
-    "lint:es": "eslint \"{src,test}/**/*.{ts,tsx}\" --ext \".ts,.tsx\" --ignore-path .prettierignore",
-    "lint:es:fix": "npm run lint:es -- --fix",
-    "lint:fix": "npm run lint:style:fix && npm run lint:es:fix && npm run lint:package:fix",
-    "lint:package": "sort-package-json --check",
-    "lint:package:fix": "sort-package-json",
-    "lint:style": "npm run lint:style:base -- --check",
-    "lint:style:base": "prettier \"{src,test}/**/*.{ts,tsx,js,json}\" \"./*.{ts,tsx,js,json}\"",
-    "lint:style:fix": "npm run lint:style:base -- --write"
+    "lint": "mono-lint",
+    "lint:fix": "mono-lint --fix",
+    "release": "mono-release"
   },
   "devDependencies": {
-    "@lusito/eslint-config": "^2.0.0",
-    "@lusito/prettier-config": "^2.0.0",
-    "rimraf": "^3.0.2",
-    "sort-package-json": "^1.57.0",
-    "typescript": "^4.7.2"
+    "@lusito/eslint-config": "^3.1.0",
+    "@lusito/mono": "^0.15.1",
+    "@lusito/prettier-config": "^3.1.0",
+    "rimraf": "^5.0.7",
+    "sort-package-json": "^2.10.0",
+    "typescript": "^5.4.5"
   }
 }
