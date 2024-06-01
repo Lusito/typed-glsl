@@ -7,6 +7,7 @@
 A type-safe way to create WebGL 1/2 shader programs and set their attributes
 
 #### Fair Warning
+
 The code has been compiled to es2015 modules, so if you want to support older browser, you'll have to ensure that this module is being transpiled to an older es version during your build-process.
 
 Also, this is currently an early version. Since I'm no OpenGL pro, there might be stuff missing or misunderstood.
@@ -19,7 +20,7 @@ Also, this is currently an early version. Since I'm no OpenGL pro, there might b
 
 ### Installation via NPM
 
-```npm install typed-glsl --save```
+`npm install typed-glsl --save`
 
 ### Sample usage
 
@@ -56,24 +57,22 @@ void main() {
 `;
 
 export function createDefaultShader(gl: WebGLRenderingContext) {
-    return createShaderProgram(gl, vertexShaderSource, fragmentShaderSource, {
-        // Specify which attributes are in your shader and what functions you want to use to set them
-        position: "vertexAttribPointer",
-        uv: "vertexAttribPointer",
-        uMVMatrix: "uniformMatrix4f",
-        uPMatrix: "uniformMatrix4f",
-        textureID: "uniform1i",
-        opacity: "uniform1f",
-        uvOffset: "uniform2f",
-    });
+  return createShaderProgram(gl, vertexShaderSource, fragmentShaderSource, {
+    // Specify which attributes are in your shader and what functions you want to use to set them
+    position: "vertexAttribPointer",
+    uv: "vertexAttribPointer",
+    uMVMatrix: "uniformMatrix4f",
+    uPMatrix: "uniformMatrix4f",
+    textureID: "uniform1i",
+    opacity: "uniform1f",
+    uvOffset: "uniform2f",
+  });
 }
 
 export type DefaultShader = ReturnType<typeof createDefaultShader>;
-
 ```
 
 Now, create a shader, use it and set its attributes:
-
 
 ```typescript
 import { createDefaultShader } from "./shaders/defaultShader";

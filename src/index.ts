@@ -23,7 +23,7 @@ export type AttribSetters<T extends DataMapGl2> = {
     [TKey in keyof T]: ReturnType<AllowedTypesGl2[T[TKey]]>;
 };
 
-export type ShaderProgram<T extends DataMapGl1> = AttribSetters<T> & { use: () => void; dispose: () => void };
+export type ShaderProgram<T extends DataMapGl2> = AttribSetters<T> & { use: () => void; dispose: () => void };
 
 export type DataMap<T extends WebGLRenderingContext> = T extends WebGL2RenderingContext ? DataMapGl2 : DataMapGl1;
 
@@ -31,7 +31,7 @@ export function createShaderProgram<TC extends WebGLRenderingContext, TD extends
     gl: TC,
     vertexShaderSource: string,
     fragmentShaderSource: string,
-    data: TD
+    data: TD,
 ): ShaderProgram<TD> {
     const program = gl.createProgram() as WebGLProgram;
     const setters: any = {};
