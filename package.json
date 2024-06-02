@@ -34,6 +34,7 @@
     "@lusito/eslint-config": "^3.1.0",
     "@lusito/mono": "^0.15.1",
     "@lusito/prettier-config": "^3.1.0",
+    "@lusito/tsconfig": "^1.0.2",
     "rimraf": "^5.0.7",
     "sort-package-json": "^2.10.0",
     "typescript": "^5.4.5"
